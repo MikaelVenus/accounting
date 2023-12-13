@@ -1,0 +1,24 @@
+{% extends 'login_base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logout Confirmation</title>
+</head>
+<body>
+    <div class="row justify-content-center">
+        <div class="col-11">
+            <h1>Logout Confirmation</h1>
+            <p>{{ message }}</p>
+            <!-- Additional content or messages here -->
+            <p> Login Again by Click</p><a href="{% url 'login' %}">login</a>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}
+
+<!-- {% include 'partials/_footer.html' %}  -->

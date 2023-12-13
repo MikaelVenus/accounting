@@ -1,0 +1,566 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<form method="POST" id="form">
+  <section>
+    <article>
+      <h2>เเก้ไขรายการขาย(จัดส่ง)</h2>
+      <!--Begin row-->
+      <div class="row">
+        <!--Begin col-->
+        <div class="column-100">
+            {% csrf_token %}
+            <!-- <form method="POST" id="form"> -->
+              <!-- {% csrf_token %} -->
+            <div class="row">
+              <div class="column-npd">
+                <p>
+                  <label for="customer">นามผู้ค้า:</label>
+                  <select id="customer"></select>
+                </p>
+              </div>
+              <div class="column-npd">
+                <p>
+                  <label for="order_id">เลขที่รายการ:</label>
+                  <input type="text" placeholder="order id" maxlength="200" required="" id="order_id">
+                </p>
+              </div>
+              <div class="column-npd">
+                <p>
+                  <label for="supplier">ผู้ขนส่ง(supplier):</label>
+                  <select id="supplier"></select>
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="column-npd">
+                <p>
+                  <label for="delivery_date">วันที่ส่งสินค้า:</label>
+                  <input type="text" placeholder="Delivery Date" maxlength="200" required="" id="delivery_date" name="delivery_date">
+                </p>
+              </div>
+              <div class="column-npd">
+                <p>
+                  <label for="item">ชนิดสินค้า:</label>
+                  <select id="item"></select>
+                </p>
+              </div>
+              <div class="column-npd">
+                <p>
+                  <label for="q_sale">ปริมาณที่ขาย(คิว):</label>
+                  <input type="text" placeholder="q sell" maxlength="200" required="" id="q_sale">
+                </p>
+              </div>
+              <div class="column-npd">
+                <p>
+                  <label for="sale_price">จำนวนเงินที่ขาย:</label>
+                  <input type="text" placeholder="sale price" maxlength="200" required="" id="sale_price">
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="column-npd">
+                <p>
+                  <label for="delivery_number">เลขที่ใบส่งของ:</label>
+                  <input type="text" placeholder="delivery number" maxlength="200" required="" id="delivery_number">
+                </p>
+              </div>
+              <div class="column-npd">
+                <p>
+                  <label for="sale_vat_id">เลขที่ใบกำกับภาษีขาย:</label>
+                  <input type="text" placeholder="sale vat id" maxlength="200" required="" id="sale_vat_id">
+                </p>
+              </div>
+              <div class="column-npd">
+                <p>
+                  <label for="target_location">สถานที่จัดส่ง:</label>
+                  <select id="target_location"></select>
+                  <!-- <textarea type="text" placeholder="Your Name" maxlength="200" required="" id="first_name"></textarea> -->
+                </p>
+              </div>
+            </div>
+            <!-- <div class="row">
+              <div class="column-npd">
+                <p>
+                  <label for="first_name">สถานที่จัดส่ง:</label>
+                  <textarea type="text" placeholder="Your Name" maxlength="200" required="" id="first_name"></textarea>
+                </p>
+              </div>
+            </div> -->
+            <div class="row">
+              <div class="column-npd">
+                <p>
+                  <label for="total_sale_amount">ยอดรับเงิน(ขาย):</label>
+                  <input type="text" placeholder="total sale amount" maxlength="200" required="" id="total_sale_amount">
+                </p>
+              </div>
+              <div class="column-npd">
+                <p>
+                  <label for="sale_pay_method">วิธีรับเงิน:</label>
+                  <select  id="sale_pay_method"></select>
+                </p>
+              </div>
+              <div class="column-npd">
+                <p>
+                  <label for="receive_date">วันที่รับเงิน:</label>
+                  <input type="text" placeholder="Receive Pay Date" maxlength="200" required="" id="receive_date" name="receive_pay_date">
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="column-npd">
+                <p>
+                  <label for="first_name">เบอร์หน้างาน:</label>
+                  <input type="text" placeholder="Receiver Phone Number" maxlength="200" required="" id="receive_phone">
+                </p>
+              </div>
+              <div class="column-npd">
+                <p>
+                  <label for="first_name">ผู้รับสินค้า</label>
+                  <input type="text" placeholder="Receiver Name" maxlength="200" required="" id="receive_name">
+                </p>
+              </div>
+            </div>
+            <!-- </form> -->
+        </div>
+        <!--End col-->
+      </div>
+        <!--Begin col-->
+      </div>
+      <!--End row-->
+    </article>
+  </section>
+  <section>
+    <article>
+      <h2>เเก้ไขรายการซื้อ</h2>
+      <!--Begin row-->
+      <div class="row">
+        <div class="column-npd">
+          <p>
+            <label for="customer_b">นามผู้ค้า:</label>
+            <select id="customer_b"></select>
+          </p>
+        </div>
+        <div class="column-npd">
+          <p>
+            <label for="order_id_b">เลขที่รายการ(supplier):</label>
+            <input type="text" placeholder="order id" maxlength="200" required="" id="order_id_b" readonly>
+          </p>
+        </div>
+        <div class="column-npd">
+          <p>
+            <label for="supplier_b">ผู้ขนส่ง(supplier):</label>
+            <select  id="supplier_b"></select>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column-npd">
+          <p>
+            <label for="item_b">ชนิดสินค้า:</label>
+            <select id="item_b"></select>
+          </p>
+        </div>
+        <div class="column-npd">
+          <p>
+            <label for="q_buy">ปริมาณที่ซื้อ(คิว):</label>
+            <input type="text" placeholder="q buy" maxlength="200" required="" id="q_buy">
+          </p>
+        </div>
+        <div class="column-npd">
+          <p>
+            <label for="buy_price">จำนวนเงินซื้อ:</label>
+            <input type="text" placeholder="buy price" maxlength="200" required="" id="buy_price">
+          </p>
+        </div>
+        <div class="column-npd">
+          <p>
+            <label for="delivery_price">ค่าขนส่ง:</label>
+            <input type="text" placeholder="Delivery Price" maxlength="200" required="" id="delivery_price" name="delivery_date">
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <!-- <div class="column-npd">
+          <p>
+            <label for="first_name">เลขที่ใบส่งของ:</label>
+            <input type="text" placeholder="Your Name" maxlength="200" required="" id="first_name">
+          </p>
+        </div> -->
+        <div class="column-npd">
+          <p>
+            <label for="buy_vat_id">เลขที่ใบกำกับภาษีซื้อ:</label>
+            <input type="text" placeholder="buy vat id" maxlength="200" required="" id="buy_vat_id">
+          </p>
+        </div>
+        <div class="column-npd">
+          <p>
+            <label for="receive_location">สถานที่รับสินค้า:</label>
+            <select id="receive_location"></select>
+            <!-- <textarea type="text" placeholder="Your Name" maxlength="200" required="" id="first_name"></textarea> -->
+          </p>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="column-npd">
+          <p>
+            <label for="first_name">สถานที่จัดส่ง:</label>
+            <textarea type="text" placeholder="Your Name" maxlength="200" required="" id="first_name"></textarea>
+          </p>
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="column-npd">
+          <p>
+            <label for="total_buy_amount">ยอดชำระรับเงิน(ซื้อ):</label>
+            <input type="text" placeholder="total buy amount" maxlength="200" required="" id="total_buy_amount">
+          </p>
+        </div>
+        <div class="column-npd">
+          <p>
+            <label for="buy_pay_method">วิธีชำระเงิน:</label>
+            <select  id="buy_pay_method"></select>
+          </p>
+        </div>
+        <div class="column-npd">
+          <p>
+            <label for="pay_date">วันที่ชำระเงิน:</label>
+            <input type="text" placeholder="pay_date" maxlength="200" required="" id="pay_date" name="pay_date">
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column-npd">
+          <p>
+            <label for="remark">หมายเหตุ:</label>
+            <textarea type="text" placeholder="remark" maxlength="200" required="" id="remark"></textarea>
+          </p>
+        </div>
+      </div>
+    </article>
+  </section>
+  <section>
+    <div class="row">
+      <div class="column-npd">
+        <h3 id="errmsg"></h3>
+        <h3 id="successmsg"></h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-npd" style="display: flex; justify-content: flex-end;">
+        <button type="button" class="custom_button_del" id="delete_button">Delete Order</button>
+      </div>
+      <div class="column-npd" style="display: flex; justify-content: flex-end;">
+        <button type="button" id="reserve_button">Edit Order</button>
+      </div>
+    </div>
+  </section>
+  <!-- <section style="display: flex; justify-content: flex-end;">
+  </section> -->
+</form>
+
+<script>
+  $(function() {
+    $("#delivery_date").datepicker({
+      dateFormat: 'dd-mm-yy' // Specify the date format as day-month-year
+    });
+
+    $("#receive_date").datepicker({
+      dateFormat: 'dd-mm-yy' // Specify the date format as day-month-year
+    });
+
+    $("#pay_date").datepicker({
+      dateFormat: 'dd-mm-yy' // Specify the date format as day-month-year
+    });
+
+    getorderitem();
+    bindSearchOrderItem('order_id')
+
+    formatToDecimal('q_sale')
+    formatToDecimal('sale_price')
+    formatToDecimal('total_sale_amount')
+    formatToDecimal('q_buy')
+    formatToDecimal('buy_price')
+    formatToDecimal('delivery_price')
+    formatToDecimal('total_buy_amount')
+
+    $('#reserve_button').hide()
+    $('#delete_button').hide()
+
+    
+    $('#reserve_button').click(function(e) {
+      sendFormData('EDIT');
+    });
+
+    $('#delete_button').click(function(e) {
+      sendFormData('DELETE');
+    });
+  });
+
+  function sendFormData(mode){
+    const formdata = {
+      order_id : document.getElementById('order_id').value,
+      customer : document.getElementById('customer').value,
+      supplier : document.getElementById('supplier').value,
+      item : document.getElementById('item').value,
+      target_location : document.getElementById('target_location').value,
+      receive_phone : document.getElementById('receive_phone').value,
+      delivery_date : document.getElementById('delivery_date').value,
+      delivery_number : document.getElementById('delivery_number').value,
+      receive_name : document.getElementById('receive_name').value,
+      q_sale : document.getElementById('q_sale').value,
+      sale_price : document.getElementById('sale_price').value,
+      total_sale_amount : document.getElementById('total_sale_amount').value,
+      sale_pay_method : document.getElementById('sale_pay_method').value,        
+      sale_vat_id : document.getElementById('sale_vat_id').value, 
+      receive_date : document.getElementById('receive_date').value, 
+      receive_location : document.getElementById('receive_location').value, 
+      q_buy : document.getElementById('q_buy').value, 
+      buy_price : document.getElementById('buy_price').value,     
+      delivery_price : document.getElementById('delivery_price').value,     
+      remark : document.getElementById('remark').value,     
+      buy_vat_id : document.getElementById('buy_vat_id').value,     
+      total_buy_amount : document.getElementById('total_buy_amount').value,     
+      buy_pay_method : document.getElementById('buy_pay_method').value,     
+      pay_date : document.getElementById('pay_date').value,   
+      Mode : mode,   
+    }
+    console.log(formdata)
+    errormessage=validateForm(formdata); 
+    if (errormessage == ''){
+      fetch("{% url 'editordering' %}", { method: 'post', body: JSON.stringify(formdata) })
+      .then(r => {
+        if (!r.ok) {
+          // Check if the response status is 500 (Internal Server Error)
+          if (r.status === 500) {
+            // Handle the 500 error case here
+            // For example, log the error or perform specific actions
+            console.error("Internal Server Error: ", r.statusText);
+          }
+          // Throw an error to be caught in the next catch block
+          throw new Error('Network response was not ok.');
+        }
+        return r.text();
+      })
+      .then(data => {
+        // getorderitem();
+        document.getElementById('successmsg').innerHTML = 'Transection Save';
+        clearData();
+      })
+      .catch(error => {
+        // This catch block will handle any errors thrown in the fetch chain
+        console.error('There was a problem with the fetch operation:', error);
+        getorderitem();
+        // Perform actions if needed when encountering an error
+        // For example, do not clear data if the response status was 500
+        // clearData();
+      });
+        }
+
+  }
+
+
+  /*  Step 10: Part two */
+  // let reservation_date = document.getElementById("reservation_date");
+  // reservation_date.addEventListener('change', getBookings);
+
+
+  function getorderitem() {
+    fetch("{% url 'orderitemviews' %}")
+      .then(r => r.json())
+      .then(data => {
+        console.log(data)
+        populateDropdown(data.pay_method, 'sale_pay_method')
+        populateDropdown(data.pay_method, 'buy_pay_method')
+        populateDropdown(data.customer, 'customer')
+        populateDropdown(data.customer, 'customer_b')
+        populateDropdown(data.item, 'item')
+        populateDropdown(data.item, 'item_b')
+        populateDropdown(data.supplier, 'supplier')
+        populateDropdown(data.supplier, 'supplier_b')
+        populateDropdown(data.location, 'target_location')
+        populateDropdown(data.location, 'receive_location')
+
+        synchronizeDropdowns('#customer','#customer_b')
+        synchronizeDropdowns('#customer_b','#customer')
+        // synchronizeDropdowns('#supplier','#supplier_b')
+        // synchronizeDropdowns('#supplier_b','#supplier')
+        synchronizeDropdowns('#item','#item_b')
+        synchronizeDropdowns('#item_b','#item')
+
+        synchronizeTextbox('#order_id','#order_id_b')
+
+      })
+  }
+
+  function geteditorderitem() {
+
+    let order_id = document.getElementById('order_id').value
+    fetch(`{% url 'editorderitemviews' %}?order_id=${order_id}`, {
+        method: 'GET'
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+        if ($.isEmptyObject(data.transection_buy) || $.isEmptyObject(data.transection_sale)){
+          $('#reserve_button').hide();
+          $('#delete_button').hide();
+        }
+        else{
+          $('#reserve_button').show();
+          $('#delete_button').show();
+          console.log(data.transection_buy[0].customer)
+          $('#customer').val(data.transection_sale[0].customer)
+          $('#supplier').val(data.transection_sale[0].supplier)
+          $('#delivery_date').val(data.transection_sale[0].delivery_date)
+          $('#item').val(data.transection_sale[0].item)
+          $('#receive_phone').val(data.transection_sale[0].receive_phone)
+          $('#delivery_date').val(data.transection_sale[0].delivery_date)
+          $('#delivery_number').val(data.transection_sale[0].delivery_number)
+          $('#receive_name').val(data.transection_sale[0].receive_name)
+          $('#q_sale').val(data.transection_sale[0].q_sale)
+          $('#sale_price').val(data.transection_sale[0].sale_price)
+          $('#total_sale_amount').val(data.transection_sale[0].total_sale_amount)
+          $('#sale_pay_method').val(data.transection_sale[0].sale_pay_method)
+          $('#sale_vat_id').val(data.transection_sale[0].sale_vat_id)
+          $('#receive_date').val(data.transection_sale[0].receive_date)
+          $('#receive_location').val(data.transection_buy[0].receive_location)
+          $('#q_buy').val(data.transection_buy[0].q_buy)
+          $('#buy_price').val(data.transection_buy[0].buy_price)
+          $('#delivery_price').val(data.transection_buy[0].delivery_price)
+          $('#remark').val(data.transection_buy[0].remark)
+          $('#buy_vat_id').val(data.transection_buy[0].buy_vat_id)
+          $('#total_buy_amount').val(data.transection_buy[0].total_buy_amount)
+          $('#buy_pay_method').val(data.transection_buy[0].buy_pay_method)
+          $('#pay_date').val(data.transection_buy[0].pay_date)
+        }
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
+  }
+
+  function populateDropdown(data, dropdownId) {
+    let dropdown = $('#' + dropdownId);
+    
+    // Loop through the data and append options to the dropdown
+    $.each(data, function(index, item) {
+        dropdown.append($('<option></option>').attr('value', item.id).text(item.name));
+    });
+  }
+
+  function synchronizeDropdowns(sourceId, targetId) {
+    $(sourceId).on('change', function() {
+        var selectedId = $(this).val();
+
+        // Set the selected value in the target dropdown to match the selected value in the source dropdown
+        $(targetId).val(selectedId);
+    });
+
+    // Trigger change event on page load to initialize the target dropdown based on the default value of the source dropdown
+    $(sourceId).trigger('change');
+  }
+
+  function synchronizeTextbox(sourceId, targetId) {
+    $(sourceId).on('input', function() {
+        var inputValue = $(this).val();
+
+        // Set the value of the target textbox to match the value of the source textbox
+        $(targetId).val(inputValue);
+    });
+
+    // Trigger input event on page load to initialize the target textbox based on the default value of the source textbox
+    $(sourceId).trigger('input');
+}
+
+  function bindSearchOrderItem(sourceId) {
+    $('#'+sourceId).on('blur', function() {
+      let order_id = document.getElementById('order_id').value
+        if (order_id){
+          geteditorderitem();
+        }
+    });
+
+    // Trigger change event on page load to initialize the target dropdown based on the default value of the source dropdown
+    $(sourceId).trigger('change');
+  }
+
+  function validateForm(formdata) {
+
+    let errorMessages = '';
+    
+    let msgCount = 0;
+
+    // Check each field in the formdata object for empty values
+    for (const key in formdata) {
+      if (formdata.hasOwnProperty(key) && formdata[key].trim() === '') {
+        msgCount += 1
+        errorMessages += `${key.replace('_', ' ').toUpperCase()} field is empty ||  `;
+        if (msgCount%2 == 0){
+          errorMessages+=`</br>`
+        }
+      }
+    }
+    document.getElementById('errmsg').innerHTML = errorMessages;
+    document.getElementById('successmsg').innerHTML = '';
+    // $('#errmsg').val(errorMessages)
+    return errorMessages;
+  }
+
+
+
+  function clearData(){
+    $('#order_id').val('')
+    $('#customer').val('1')
+    $('#supplier').val('1')
+    $('#delivery_date').val('')
+    $('#item').val('1')
+    $('#receive_phone').val('')
+    $('#delivery_date').val('')
+    $('#delivery_number').val('')
+    $('#receive_name').val('')
+    $('#q_sale').val('')
+    $('#sale_price').val('')
+    $('#total_sale_amount').val('')
+    $('#sale_pay_method').val('1')
+    $('#sale_vat_id').val('')
+    $('#receive_date').val('')
+    $('#receive_location').val('1')
+    $('#q_buy').val('')
+    $('#buy_price').val('')
+    $('#delivery_price').val('')
+    $('#remark').val('')
+    $('#buy_vat_id').val('')
+    $('#total_buy_amount').val('')
+    $('#buy_pay_method').val('1')
+    $('#pay_date').val('')
+  }
+
+  // function resetDropdown(sourceId) {
+  //   $(sourceId).on('change', function() {
+  //       var selectedId = $(this).val();
+
+  //       // Set the selected value in the target dropdown to match the selected value in the source dropdown
+  //       $(targetId).val('1');
+  //   });
+
+  //   // Trigger change event on page load to initialize the target dropdown based on the default value of the source dropdown
+  //   $(sourceId).trigger('change');
+  // }\
+
+  function formatToDecimal(inputFieldId) {
+    $('#'+inputFieldId).on('blur', function() {
+      formattedValue = parseFloat(Math.round($(this).val() * 100) / 100).toFixed(2)
+        $(this).val(formattedValue);
+      });
+    }
+
+</script>
+{% endblock %}
+

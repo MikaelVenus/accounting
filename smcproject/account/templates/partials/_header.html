@@ -1,0 +1,14 @@
+{% load static %}
+<header>
+  <img src="{% static 'img/logo_sm.jpg' %}" />
+</header>
+<nav>
+  <ul>
+    <li><a href="{% url 'home' %}">หน้าหลัก</a></li>
+    <li><a href="{% url 'orderitem' %}">เพิ่มรายการ</a></li>
+    <li><a href="{% url 'editorderitem' %}">เเก้ไขรายการ</a></li>
+    <li><a href="{% url 'transection' %}">รวมรายการ</a></li>
+    <!-- <li><a href="{% url 'book' %}">รวมรายการ</a></li> -->
+    <!-- <li><a href="{% url 'reservations' %}">Reservations</a></li> -->
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+</nav>
