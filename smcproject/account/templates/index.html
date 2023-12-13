@@ -4,19 +4,19 @@
 {% block content %}
 <section>
     <article id="hero">
-      <h1 class="heading_shadow">ระบบขนส่งสินค้าสมานท่าทราย</h1>
+      <h1 class="heading_shadow">Welcome to Accounting System</h1>
       <!-- <p>
         30% Off This Weekend 
       </p> -->
       <!-- <a href="#" class="cta"> เพิ่มรายการ </a> -->
-      <a href="{% url 'orderitem' %}" class="cta"> เพิ่มรายการ </a>
+      <a href="{% url 'orderitem' %}" class="cta"> Add Order </a>
     </article>
   </section>
   <section>
     <article>
-      <h2>เเก้ไขข้อมูล</h2>
+      <h2>Edit Order</h2>
       <p>
-        ตรวจสอบข้อมูลของรายการที่ได้บันทึกไว้เเล้ว หรือเเก้ไขข้อมูลที่บันทึกผิดพลาด
+        Check Edit or Add the order you might want to change
       </p>
       <p>
         <a href="{% url 'editorderitem' %}">ตรวจสอบเเต่ละรายการ</a>
@@ -24,20 +24,24 @@
       <img src="{% static 'img/SM_badge.jpg' %}">
     </article>
     <article>
-      <h2>รวมข้อมูล</h2>
+      <h2>Transection</h2>
       <p>
-        ตรวจสอบข้อมูล Transection โดยรวมที่เกิดขึ้นในระบบ
+        Check all data transection in system
       </p>
       <p>
-        <a href="{% url 'transection' %}">ตรวจสอบรายการรวม</a>
+        <a href="{% url 'transection' %}">check transection</a>
       </p>
       <img src="{% static 'img/SM_Dashboard.jpg' %}">
     </article>
     <article>
-      <h2>ข้อมูลเพิ่มเติม</h2>
+      <h2>For more information</h2>
       <!-- <img src="{% static 'img/head_chef.jpg' %}"> -->
       <p>
-        ในกรณีที่ต้องการความช่วยเหลือโปรดติดต่อ Admin 
+        Please contact admin for further detail
+        <br>
+        Phone: 078-XXX-XXXX
+        <br>
+        Email: littlelemon@littlelemon.org
       </p>
       <!-- <ul>
         <li>Mon - Fri: 2pm - 10pm</li>
